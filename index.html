@@ -1,0 +1,494 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Xuehan Xiong</title>
+<meta name="description" content="Xuehan Xiong — Senior Staff Software Engineer at Google Cloud AI. LLMs, VLMs, foundation models, video understanding." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='18' fill='%23FFF3AD' stroke='black' stroke-width='8'/><text x='50' y='68' font-size='52' text-anchor='middle' font-family='Arial' font-weight='bold'>XX</text></svg>" />
+<style>
+  :root {
+    --red: #D6403F;
+    --red-dark: #AA1E1E;
+    --yellow: #FFF3AD;
+    --yellow-soft: #FFF2CC;
+    --cream: #FFFBF0;
+    --ink: #020E13;
+    --gray: #F5F5F5;
+    --white: #FFFFFF;
+    --pink: #faaca8;
+    --lilac: #dad0ec;
+    --mint: #d4edda;
+    --sky: #cce5ff;
+    --peach: #fdd79a;
+    --border: 2px solid #000;
+    --shadow: 5px 5px 0 #000;
+    --shadow-sm: 3px 3px 0 #000;
+    --radius: 10px;
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    margin: 0;
+    font-family: "Poppins", Arial, sans-serif;
+    color: var(--ink);
+    background: var(--cream);
+    line-height: 1.6;
+    font-size: 16px;
+  }
+  a { color: inherit; }
+  .wrap { max-width: 1120px; margin: 0 auto; padding: 0 20px; }
+
+  /* ---------- top tagline + nav ---------- */
+  .tagline {
+    background: var(--ink);
+    color: var(--yellow);
+    text-align: center;
+    font-size: 14px;
+    font-weight: 500;
+    padding: 8px 12px;
+  }
+  header.nav {
+    position: sticky; top: 0; z-index: 10;
+    background: var(--yellow);
+    border-bottom: var(--border);
+  }
+  header.nav .wrap {
+    display: flex; align-items: center; justify-content: space-between;
+    gap: 16px; padding-top: 12px; padding-bottom: 12px; flex-wrap: wrap;
+  }
+  .logo {
+    display: flex; align-items: center; gap: 10px;
+    font-weight: 800; font-size: 20px; text-decoration: none;
+  }
+  .logo .badge {
+    display: inline-grid; place-items: center;
+    width: 40px; height: 40px;
+    background: var(--red); color: var(--white);
+    border: var(--border); border-radius: var(--radius);
+    box-shadow: var(--shadow-sm); font-size: 15px;
+  }
+  nav ul { list-style: none; display: flex; flex-wrap: wrap; gap: 8px; margin: 0; padding: 0; }
+  nav a {
+    display: block; padding: 6px 14px;
+    font-weight: 600; font-size: 14px; text-decoration: none;
+    border: 2px solid transparent; border-radius: 9999px;
+    transition: all .15s ease;
+  }
+  nav a:hover { background: var(--white); border-color: #000; box-shadow: 2px 2px 0 #000; }
+
+  /* ---------- buttons ---------- */
+  .btn {
+    display: inline-flex; align-items: center; gap: 8px;
+    padding: 10px 18px;
+    font-weight: 600; font-size: 15px; text-decoration: none;
+    background: var(--white);
+    border: var(--border); border-radius: var(--radius);
+    box-shadow: 4px 4px 0 #000;
+    transition: transform .12s ease, box-shadow .12s ease;
+  }
+  .btn:hover { transform: translate(-2px, -2px); box-shadow: 6px 6px 0 #000; }
+  .btn:active { transform: translate(2px, 2px); box-shadow: 2px 2px 0 #000; }
+  .btn.primary { background: var(--red); color: var(--white); }
+  .btn.yellow { background: var(--yellow); }
+
+  /* ---------- hero ---------- */
+  .hero { padding: 64px 0 40px; }
+  .hero-grid { display: grid; grid-template-columns: 1.4fr 1fr; gap: 40px; align-items: center; }
+  .kicker {
+    display: inline-block;
+    background: var(--white); border: var(--border); border-radius: 9999px;
+    padding: 4px 14px; font-weight: 600; font-size: 14px;
+    box-shadow: var(--shadow-sm);
+  }
+  .hero h1 { font-size: clamp(40px, 7vw, 68px); line-height: 1.05; margin: 20px 0 12px; font-weight: 800; }
+  .hero h1 .hl {
+    background: var(--yellow); padding: 0 10px;
+    border: var(--border); border-radius: var(--radius);
+    display: inline-block; transform: rotate(-1.5deg);
+  }
+  .hero .role { font-size: 20px; font-weight: 600; margin: 0 0 12px; }
+  .hero .role span { color: var(--red); }
+  .hero p.lead { font-size: 17px; max-width: 580px; margin: 0 0 24px; }
+  .hero .actions { display: flex; flex-wrap: wrap; gap: 12px; }
+
+  .face-card {
+    background: var(--red); color: var(--white);
+    border: var(--border); border-radius: 18px; box-shadow: 8px 8px 0 #000;
+    padding: 28px; text-align: center; position: relative;
+  }
+  .face-card .kao { font-size: clamp(42px, 6vw, 60px); font-weight: 700; white-space: nowrap; }
+  .face-card .sub { font-weight: 600; margin-top: 4px; }
+  .stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin-top: 22px; }
+  .stat {
+    background: var(--white); color: var(--ink);
+    border: var(--border); border-radius: var(--radius); padding: 10px 6px;
+  }
+  .stat b { display: block; font-size: 24px; line-height: 1.1; }
+  .stat small { font-size: 12px; font-weight: 600; }
+  .face-card .src { font-size: 12px; margin-top: 12px; opacity: .9; }
+  .face-card .src a { color: var(--white); }
+  .sticker {
+    position: absolute; top: -18px; right: -14px;
+    background: var(--yellow); color: var(--ink);
+    border: var(--border); border-radius: 9999px; padding: 4px 12px;
+    font-weight: 700; font-size: 13px; transform: rotate(8deg);
+    box-shadow: var(--shadow-sm);
+  }
+
+  /* ---------- sections ---------- */
+  section { padding: 48px 0; }
+  section.alt { background: var(--white); border-top: var(--border); border-bottom: var(--border); }
+  .sec-head { display: flex; align-items: baseline; gap: 14px; flex-wrap: wrap; margin-bottom: 26px; }
+  .sec-head h2 { font-size: clamp(28px, 4vw, 38px); margin: 0; font-weight: 800; }
+  .sec-head .kao { font-size: 20px; font-weight: 600; color: var(--red); }
+  .sec-head p { flex-basis: 100%; margin: 4px 0 0; }
+
+  .card {
+    background: var(--white);
+    border: var(--border); border-radius: var(--radius); box-shadow: var(--shadow);
+    padding: 22px;
+  }
+
+  /* quick tiles (like the category grid) */
+  .tiles { display: grid; grid-template-columns: repeat(auto-fill, minmax(230px, 1fr)); gap: 16px; }
+  .tile {
+    display: flex; align-items: center; justify-content: space-between; gap: 10px;
+    background: var(--yellow-soft);
+    border: var(--border); border-radius: var(--radius); box-shadow: 4px 4px 0 #000;
+    padding: 14px 16px; font-weight: 600; text-decoration: none;
+    transition: transform .12s ease, box-shadow .12s ease, background .12s ease;
+  }
+  .tile:hover { transform: translate(-2px, -2px); box-shadow: 6px 6px 0 #000; background: var(--yellow); }
+  .tile .k { font-weight: 700; margin-right: 6px; }
+  .tile .arrow { font-size: 18px; }
+  .tile:nth-child(6n+2) { background: var(--pink); }
+  .tile:nth-child(6n+3) { background: var(--sky); }
+  .tile:nth-child(6n+4) { background: var(--mint); }
+  .tile:nth-child(6n+5) { background: var(--lilac); }
+  .tile:nth-child(6n+6) { background: var(--peach); }
+
+  /* publications */
+  .filters { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 18px; }
+  .filters button, .search {
+    font-family: inherit; font-size: 14px; font-weight: 600;
+    background: var(--white); color: var(--ink);
+    border: var(--border); border-radius: 9999px; padding: 6px 14px;
+    cursor: pointer; box-shadow: 2px 2px 0 #000;
+    transition: transform .1s ease, background .1s ease;
+  }
+  .filters button:hover { transform: translate(-1px, -1px); }
+  .filters button.on { background: var(--red); color: var(--white); }
+  .search { flex: 1 1 220px; cursor: text; border-radius: var(--radius); outline: none; }
+  .search:focus { background: var(--yellow-soft); }
+  .pubs { display: grid; gap: 14px; }
+  .pub {
+    display: grid; grid-template-columns: 1fr auto; gap: 14px; align-items: center;
+    background: var(--white); border: var(--border); border-radius: var(--radius);
+    box-shadow: 4px 4px 0 #000; padding: 14px 18px;
+    transition: transform .12s ease, box-shadow .12s ease;
+  }
+  .pub:hover { transform: translate(-2px, -2px); box-shadow: 6px 6px 0 #000; }
+  .pub { scroll-margin-top: 90px; }
+  .pub.flash { animation: flash 2.4s ease; }
+  @keyframes flash {
+    0%, 60% { background: var(--yellow); box-shadow: 6px 6px 0 var(--red); }
+    100% { background: var(--white); }
+  }
+  .pub .t { font-weight: 700; text-decoration: none; }
+  .pub .t:hover { color: var(--red); text-decoration: underline; }
+  .pub .a { font-size: 14px; }
+  .pub .a b { background: var(--yellow); padding: 0 3px; }
+  .pub .v { font-size: 13px; font-weight: 600; color: var(--red-dark); }
+  .cites {
+    text-align: center; min-width: 76px;
+    background: var(--yellow); border: var(--border); border-radius: var(--radius);
+    padding: 4px 8px; font-weight: 800; line-height: 1.15;
+  }
+  .cites small { display: block; font-size: 10px; font-weight: 600; }
+  .empty { display: none; text-align: center; font-weight: 600; padding: 24px; }
+
+  /* two-column lists */
+  .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+  .card h3 { margin-top: 0; display: flex; gap: 10px; align-items: center; }
+  .card h3 .ic {
+    display: inline-grid; place-items: center; width: 36px; height: 36px;
+    background: var(--yellow); border: var(--border); border-radius: 8px; font-size: 16px;
+  }
+  .list { list-style: none; margin: 0; padding: 0; }
+  .list li { display: flex; justify-content: space-between; gap: 12px; padding: 9px 0; border-bottom: 2px dashed #000; }
+  .list li:last-child { border-bottom: 0; }
+  .list .yr { font-weight: 700; white-space: nowrap; color: var(--red); }
+
+  /* FAQ-style fun facts */
+  details {
+    background: var(--white); border: var(--border); border-radius: var(--radius);
+    box-shadow: 4px 4px 0 #000; margin-bottom: 14px; overflow: hidden;
+  }
+  summary {
+    cursor: pointer; list-style: none; padding: 14px 18px; font-weight: 700;
+    display: flex; justify-content: space-between; align-items: center; gap: 12px;
+  }
+  summary::-webkit-details-marker { display: none; }
+  summary::after { content: "+"; font-size: 22px; font-weight: 800; }
+  details[open] summary { background: var(--yellow); border-bottom: var(--border); }
+  details[open] summary::after { content: "−"; }
+  details .body { padding: 14px 18px; }
+
+  /* footer */
+  footer { background: var(--ink); color: var(--white); border-top: var(--border); margin-top: 20px; }
+  footer .wrap { padding-top: 40px; padding-bottom: 24px; }
+  .foot-grid { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 30px; }
+  footer h4 { color: var(--yellow); margin: 0 0 10px; font-size: 17px; }
+  footer a { color: var(--white); }
+  footer ul { list-style: none; padding: 0; margin: 0; }
+  footer li { margin-bottom: 6px; }
+  .bottom {
+    border-top: 2px dashed rgba(255,255,255,.4); margin-top: 26px; padding-top: 16px;
+    font-size: 13px; display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap;
+  }
+
+  @media (max-width: 860px) {
+    .hero-grid, .grid-2, .foot-grid { grid-template-columns: 1fr; }
+    nav ul { gap: 2px; }
+    nav a { padding: 4px 10px; }
+  }
+  @media (max-width: 520px) {
+    .pub { grid-template-columns: 1fr; }
+    .cites { justify-self: start; display: flex; gap: 6px; align-items: baseline; }
+  }
+</style>
+</head>
+<body>
+
+<div class="tagline">ヽ(•‿•)ノ Building multimodal foundation models, one token at a time.</div>
+
+<header class="nav">
+  <div class="wrap">
+    <a class="logo" href="#top"><span class="badge">XX</span> Xuehan Xiong</a>
+    <nav>
+      <ul>
+        <li><a href="#about">About</a></li>
+        <li><a href="#publications">Publications</a></li>
+        <li><a href="#more">More</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+  <!-- HERO -->
+  <div class="hero">
+    <div class="wrap hero-grid">
+      <div>
+        <span class="kicker">(ﾉ◕ヮ◕)ﾉ*:･ﾟ✧ Hi there!</span>
+        <h1>I'm <span class="hl">Xuehan</span> Xiong</h1>
+        <p class="role">Senior Staff Software Engineer @ <span>Google Cloud AI</span></p>
+        <p class="lead">
+          I work on large language and vision-language models. I currently lead post-training quality on
+          Gemini Enterprise Agent Platform training clusters. Before that, I led multimodal LLM pretraining at ByteDance Seed and was part of the
+          initial Gemini team at Google.
+        </p>
+        <div class="actions">
+          <a class="btn primary" href="mailto:xiong828@gmail.com">✉ Email me</a>
+          <a class="btn yellow" href="https://scholar.google.com/citations?user=vM1SktEAAAAJ&amp;hl=en" target="_blank" rel="noopener">🎓 Google Scholar</a>
+          <a class="btn" href="https://www.linkedin.com/in/xuehan-xiong" target="_blank" rel="noopener">in LinkedIn</a>
+        </div>
+      </div>
+      <div class="face-card">
+        <span class="sticker">LLM · VLM</span>
+        <div class="kao">( •̀ ω •́ )✧</div>
+        <div class="sub">Research by the numbers</div>
+        <div class="stats">
+          <div class="stat"><b>24K+</b><small>citations</small></div>
+          <div class="stat"><b>27</b><small>h-index</small></div>
+          <div class="stat"><b>34</b><small>i10-index</small></div>
+        </div>
+        <div class="src">via <a href="https://scholar.google.com/citations?user=vM1SktEAAAAJ&amp;hl=en" target="_blank" rel="noopener">Google Scholar</a></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ABOUT / QUICK TILES -->
+  <section id="about" class="alt">
+    <div class="wrap">
+      <div class="sec-head">
+        <h2>Things I've worked on</h2><span class="kao">(⌐■_■)</span>
+        <p>Over about 15 years I've moved from 3D scene understanding to face alignment, video understanding, and now multimodal LLMs.</p>
+      </div>
+      <div class="tiles">
+        <a class="tile" href="#pub-gemini" data-pubs="gemini,gemini15"><span><span class="k">✦</span>Gemini 1 &amp; 1.5</span><span class="arrow">→</span></a>
+        <a class="tile" href="#pub-seed15vl" data-pubs="seed15vl"><span><span class="k">◕‿◕</span>Seed1.5-VL</span><span class="arrow">→</span></a>
+        <a class="tile" href="#pub-mtv" data-pubs="mtv,unloc"><span><span class="k">▶</span>Video Transformers</span><span class="arrow">→</span></a>
+        <a class="tile" href="#pub-vos" data-pubs="vos"><span><span class="k">✂</span>Video object segmentation</span><span class="arrow">→</span></a>
+        <a class="tile" href="#pub-sdm" data-pubs="sdm,gsdm"><span><span class="k">ʘ‿ʘ</span>Supervised Descent Method</span><span class="arrow">→</span></a>
+        <a class="tile" href="#pub-intraface" data-pubs="intraface,gaze-rgbd,driver-gaze"><span><span class="k">👀</span>Face &amp; gaze tracking</span><span class="arrow">→</span></a>
+        <a class="tile" href="#pub-mmmix" data-pubs="mmmix"><span><span class="k">🏆</span>Epic-Kitchens 2022 winner</span><span class="arrow">→</span></a>
+        <a class="tile" href="#pub-intraface" data-pubs="intraface"><span><span class="k">🏅</span>Test of Time Award 2026</span><span class="arrow">→</span></a>
+        <a class="tile" href="#pub-bim3d" data-pubs="bim3d,context3d"><span><span class="k">▦</span>Semantic 3D building models</span><span class="arrow">→</span></a>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- PUBLICATIONS -->
+  <section id="publications" class="alt">
+    <div class="wrap">
+      <div class="sec-head">
+        <h2>Publications</h2><span class="kao">φ(゜▽゜*)♪</span>
+        <p>Selected papers. Citation counts come from Google Scholar. See the <a href="https://scholar.google.com/citations?user=vM1SktEAAAAJ&amp;hl=en" target="_blank" rel="noopener">full list on Scholar</a>.</p>
+      </div>
+      <div class="filters">
+        <button class="on" data-f="all">All</button>
+        <button data-f="llm">LLM / VLM</button>
+        <button data-f="video">Video</button>
+        <button data-f="face">Face &amp; Gaze</button>
+        <button data-f="3d">3D &amp; Robotics</button>
+        <input class="search" type="search" placeholder="Search papers… (・_・ヾ" aria-label="Search publications" />
+      </div>
+      <div class="pubs" id="pubs"></div>
+      <div class="empty" id="empty">No papers found for that search! (╥﹏╥)</div>
+    </div>
+  </section>
+
+
+  <!-- EDUCATION / SKILLS / FUN -->
+  <section id="more" class="alt">
+    <div class="wrap">
+      <div class="sec-head">
+        <h2>Education &amp; fun facts</h2><span class="kao">(｡♥‿♥｡)</span>
+      </div>
+      <div class="grid-2">
+        <div class="card">
+          <h3><span class="ic">🎓</span>Education</h3>
+          <ul class="list">
+            <li><span><b>PhD, Robotics</b><br>Carnegie Mellon University</span><span class="yr">2015</span></li>
+            <li><span><b>M.S., Robotics</b><br>Carnegie Mellon University</span><span class="yr">2011</span></li>
+            <li><span><b>B.S., Computer Science</b><br>University of Arizona, Summa Cum Laude</span><span class="yr">2009</span></li>
+          </ul>
+        </div>
+        <div>
+          <details open>
+            <summary>Was I really a sprinter? ε=ε=┌( &gt;_&lt;)┘</summary>
+            <div class="body">
+              Yes! I was on the University of Arizona Men's Track &amp; Field team (2005–2009), an <b>NCAA All-American</b> (2007), and the <b>NCAA Western Regional Champion</b> (2008).
+            </div>
+          </details>
+          <details>
+            <summary>Even before college? (ง •̀_•́)ง</summary>
+            <div class="body">
+              In 2004 I was the <b>National Junior Champion in the 200m dash</b>, a member of the National Junior Team, and a <b>bronze medalist</b> at the Asian Junior Track &amp; Field Championships.
+            </div>
+          </details>
+          <details>
+            <summary>Where's SDM used? (☞ﾟヮﾟ)☞</summary>
+            <div class="body">
+              The Supervised Descent Method (CVPR 2013) was the core technology at FacioMetrics. After Facebook acquired the company, it powered face effects in Facebook and Instagram.
+            </div>
+          </details>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <h4>Xuehan Xiong ( ˘▽˘)っ♨</h4>
+        <p>Senior Staff Software Engineer at Google Cloud AI, working on LLMs, VLMs, and foundation models.</p>
+      </div>
+      <div>
+        <h4>Let's connect</h4>
+        <ul>
+          <li><a href="https://www.linkedin.com/in/xuehan-xiong" target="_blank" rel="noopener">LinkedIn</a></li>
+          <li><a href="https://scholar.google.com/citations?user=vM1SktEAAAAJ&amp;hl=en" target="_blank" rel="noopener">Google Scholar</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Jump to</h4>
+        <ul>
+            <li><a href="#publications">Publications</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="bottom">
+      <span>© <span id="yr">2026</span> Xuehan Xiong</span>
+      <span>Thanks for stopping by! (^_^)/</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // cites: Google Scholar citation counts (Oct 2026); null = not in the top-20 list
+  const PUBS = [
+    { id: "seed15vl", t: "Seed1.5-VL Technical Report", a: "Dong Guo et al.", v: "arXiv 2025", c: 436, tag: "llm", url: "https://arxiv.org/abs/2505.07062" },
+    { id: "gemini15", t: "Gemini 1.5: Unlocking multimodal understanding across millions of tokens of context", a: "Gemini Team (Machel Reid et al.)", v: "arXiv 2024", c: 4812, tag: "llm", url: "https://arxiv.org/abs/2403.05530" },
+    { id: "gemini", t: "Gemini: A family of highly capable multimodal models", a: "Gemini Team (Rohan Anil et al.)", v: "arXiv 2023", c: 11145, tag: "llm", url: "https://arxiv.org/abs/2312.11805" },
+    { id: "unloc", t: "UnLoc: A unified framework for video localization tasks", a: "Shen Yan, Xuehan Xiong, Arsha Nagrani, Anurag Arnab, Zhonghao Wang, Weina Ge, David Ross, Cordelia Schmid", v: "ICCV 2023", c: 122, tag: "video" },
+    { id: "mtv", t: "Multiview transformers for video recognition", a: "Shen Yan, Xuehan Xiong, Anurag Arnab, Zhichao Lu, Mi Zhang, Chen Sun, Cordelia Schmid", v: "CVPR 2022", c: 472, tag: "video" },
+    { id: "mmmix", t: "M&M Mix: A multimodal multiview transformer ensemble", a: "Xuehan Xiong et al.", v: "arXiv 2022 · Epic-Kitchens Challenge winner", c: null, tag: "video", url: "https://arxiv.org/abs/2206.09852" },
+    { t: "AttentionNAS: Spatiotemporal attention cell search for video classification", a: "Xiaofang Wang et al.", v: "ECCV 2020", c: null, tag: "video" },
+    { id: "vos", t: "Efficient video object segmentation via network modulation", a: "Linjie Yang, Yanran Wang, Xuehan Xiong, Jianchao Yang, Aggelos K. Katsaggelos", v: "CVPR 2018", c: 481, tag: "video" },
+    { id: "gsdm", t: "Global supervised descent method", a: "Xuehan Xiong, Fernando De la Torre", v: "CVPR 2015", c: 249, tag: "face" },
+    { id: "intraface", t: "IntraFace", a: "Fernando De la Torre et al.", v: "FG 2015 · Test of Time Award FG 2026", c: null, tag: "face" },
+    { id: "driver-gaze", t: "Driver gaze tracking and eyes off the road detection system", a: "Francisco Vicente, Zehua Huang, Xuehan Xiong, Fernando De la Torre, Wende Zhang, Dan Levi", v: "IEEE T-ITS 2015", c: 464, tag: "face" },
+    { id: "gaze-rgbd", t: "Eye gaze tracking using an RGBD camera: A comparison with a RGB solution", a: "Xuehan Xiong, Zicheng Liu, Qin Cai, Zhengyou Zhang", v: "UbiComp 2014", c: 131, tag: "face" },
+    { id: "sdm", t: "Supervised descent method and its applications to face alignment", a: "Xuehan Xiong, Fernando De la Torre", v: "CVPR 2013", c: 2600, tag: "face" },
+    { id: "bim3d", t: "Automatic creation of semantically rich 3D building models from laser scanner data", a: "Xuehan Xiong, Antonio Adan, Burcu Akinci, Daniel Huber", v: "Automation in Construction 2013", c: 961, tag: "3d" },
+    { t: "3-D scene analysis via sequenced predictions over points and regions", a: "Xuehan Xiong, Daniel Munoz, J. Andrew Bagnell, Martial Hebert", v: "ICRA 2011 · Best Vision Paper Finalist", c: 166, tag: "3d" },
+    { id: "context3d", t: "Using context to create semantic 3D models of indoor environments", a: "Xuehan Xiong, Daniel Huber", v: "BMVC 2010", c: 170, tag: "3d" },
+    { t: "Toward automated modeling of floor plans", a: "Brian Okorn, Xuehan Xiong, Burcu Akinci, Daniel Huber", v: "3DPVT 2010", c: 201, tag: "3d" },
+  ];
+
+  const esc = s => s.replace(/[&<>"]/g, ch => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[ch]));
+  const fmt = n => n >= 1000 ? (n / 1000).toFixed(1).replace(/\.0$/, "") + "K" : String(n);
+  const link = p => p.url || "https://scholar.google.com/scholar?q=" + encodeURIComponent(p.t);
+
+  const list = document.getElementById("pubs");
+  list.innerHTML = PUBS.map(p => `
+    <div class="pub"${p.id ? ` id="pub-${p.id}"` : ""} data-tag="${p.tag}" data-text="${esc((p.t + " " + p.a + " " + p.v).toLowerCase())}">
+      <div>
+        <a class="t" href="${link(p)}" target="_blank" rel="noopener">${esc(p.t)}</a>
+        <div class="a">${esc(p.a).replace("Xuehan Xiong", "<b>Xuehan Xiong</b>")}</div>
+        <div class="v">${esc(p.v)}</div>
+      </div>
+      ${p.c ? `<div class="cites">${fmt(p.c)}<small>citations</small></div>` : ""}
+    </div>`).join("");
+
+  let filter = "all", query = "";
+  const apply = () => {
+    let shown = 0;
+    list.querySelectorAll(".pub").forEach(el => {
+      const ok = (filter === "all" || el.dataset.tag === filter) && el.dataset.text.includes(query);
+      el.style.display = ok ? "" : "none";
+      if (ok) shown++;
+    });
+    document.getElementById("empty").style.display = shown ? "none" : "block";
+  };
+  document.querySelectorAll(".filters button").forEach(b => b.addEventListener("click", () => {
+    document.querySelectorAll(".filters button").forEach(x => x.classList.remove("on"));
+    b.classList.add("on");
+    filter = b.dataset.f;
+    apply();
+  }));
+  document.querySelector(".search").addEventListener("input", e => { query = e.target.value.trim().toLowerCase(); apply(); });
+  // tiles: clear filters, scroll to the first related paper, flash all related ones
+  document.querySelectorAll(".tile[data-pubs]").forEach(t => t.addEventListener("click", e => {
+    e.preventDefault();
+    filter = "all"; query = "";
+    document.querySelector(".search").value = "";
+    document.querySelectorAll(".filters button").forEach(x => x.classList.toggle("on", x.dataset.f === "all"));
+    apply();
+    const els = t.dataset.pubs.split(",").map(id => document.getElementById("pub-" + id)).filter(Boolean);
+    els[0].scrollIntoView({ behavior: "smooth", block: "start" });
+    els.forEach(el => { el.classList.remove("flash"); void el.offsetWidth; el.classList.add("flash"); });
+  }));
+  document.getElementById("yr").textContent = new Date().getFullYear();
+</script>
+</body>
+</html>
