@@ -203,6 +203,22 @@
   .pub .a { font-size: 14px; }
   .pub .a b { background: var(--yellow); padding: 0 3px; }
   .pub .v { font-size: 13px; font-weight: 600; color: var(--red-dark); }
+  .blogs { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 20px; }
+  .post {
+    display: flex; flex-direction: column; gap: 10px;
+    background: var(--yellow-soft); text-decoration: none;
+    border: var(--border); border-radius: var(--radius); box-shadow: var(--shadow);
+    padding: 20px 22px;
+    transition: transform .12s ease, box-shadow .12s ease;
+  }
+  .post:hover { transform: translate(-2px, -2px); box-shadow: 7px 7px 0 #000; }
+  .post .series { align-self: flex-start; }
+  .post h3 { margin: 0; font-size: 20px; line-height: 1.3; }
+  .post:hover h3 { color: var(--red); }
+  .post .a { font-size: 14px; }
+  .post .a b { background: var(--yellow); padding: 0 3px; }
+  .post p { margin: 0; font-size: 15px; }
+  .post .more { margin-top: auto; font-weight: 700; }
   .cites {
     text-align: center; min-width: 76px;
     background: var(--yellow); border: var(--border); border-radius: var(--radius);
@@ -272,6 +288,7 @@
     <nav>
       <ul>
         <li><a href="#about">About</a></li>
+        <li><a href="#blog">Blog</a></li>
         <li><a href="#publications">Publications</a></li>
         <li><a href="#more">More</a></li>
       </ul>
@@ -295,7 +312,7 @@
         <div class="actions">
           <a class="btn primary" href="mailto:xiong828@gmail.com">✉ Email me</a>
           <a class="btn yellow" href="https://scholar.google.com/citations?user=vM1SktEAAAAJ&amp;hl=en" target="_blank" rel="noopener">🎓 Google Scholar</a>
-          <a class="btn" href="https://www.linkedin.com/in/xuehan-xiong" target="_blank" rel="noopener">in LinkedIn</a>
+          <a class="btn" href="https://www.linkedin.com/in/xuehan-xiong-10956737/" target="_blank" rel="noopener">in LinkedIn</a>
         </div>
       </div>
       <div class="face-card">
@@ -329,6 +346,25 @@
         <a class="tile" href="#pub-mmmix" data-pubs="mmmix"><span><span class="k">🏆</span>Epic-Kitchens 2022 winner</span><span class="arrow">→</span></a>
         <a class="tile" href="#pub-intraface" data-pubs="intraface"><span><span class="k">🏅</span>Test of Time Award 2026</span><span class="arrow">→</span></a>
         <a class="tile" href="#pub-bim3d" data-pubs="bim3d,context3d"><span><span class="k">▦</span>Semantic 3D building models</span><span class="arrow">→</span></a>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- BLOG -->
+  <section id="blog" class="alt">
+    <div class="wrap">
+      <div class="sec-head">
+        <h2>Blog</h2><span class="kao">✍(◔◡◔)</span>
+      </div>
+      <div class="blogs">
+        <a class="post" href="https://googlecloudplatform.github.io/vertex-ai-samples/vertex-training-cluster/model_distillation_best_practices" target="_blank" rel="noopener">
+          <span class="kicker series">Vertex AI Training Cluster</span>
+          <h3>Model Distillation Best Practices</h3>
+          <div class="a"><b>Xuehan Xiong</b>, Youbao Tang, Fei Xia, Bao Thach, Joseph Pagadora</div>
+          <p>The first post in a series on off-policy distillation. We fine-tune Qwen3 base models (1.7B–14B) on teacher-generated reasoning traces for math, instruction following, ARC-AGI 1, and τ²-bench. Covers dataset curation, teacher selection, rollout counts, rejection sampling, and learning-rate scaling rules.</p>
+          <span class="more">Read the post →</span>
+        </a>
       </div>
     </div>
   </section>
@@ -412,6 +448,7 @@
       <div>
         <h4>Jump to</h4>
         <ul>
+            <li><a href="#blog">Blog</a></li>
             <li><a href="#publications">Publications</a></li>
         </ul>
       </div>
