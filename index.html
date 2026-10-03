@@ -638,36 +638,43 @@
         keyboard: true, title: s.city.replace(/&amp;/g, "&"),
       }).addTo(map);
       m.bindTooltip(`<b>${s.city}</b><span>${s.yrs}</span><div>${s.note}</div>`, { className: "stop-tip", direction: "top", offset: [0, -16] });
-      m.on("mouseover", () => highlight(i));
-      m.on("click", () => go(i));
+      m.on("mouseover", () => show(i));
+      m.on("mouseout", () => show(active));
+      m.on("click", () => { clearTimeout(playing); go(i); });
 
       const li = document.createElement("li");
       li.innerHTML = `<button class="stop" type="button"><span class="n">${i + 1}</span><span><b>${s.city}</b><small class="yrs">${s.yrs}</small><small>${s.note}</small></span></button>`;
-      li.firstChild.addEventListener("click", () => go(i));
-      li.firstChild.addEventListener("mouseenter", () => { highlight(i); m.openTooltip(); });
+      li.firstChild.addEventListener("click", () => { clearTimeout(playing); go(i); });
+      li.firstChild.addEventListener("mouseenter", () => show(i));
+      li.firstChild.addEventListener("mouseleave", () => show(active));
       list.appendChild(li);
       return m;
     });
 
     const bounds = L.latLngBounds(STOPS.map(s => s.ll)).pad(0.15);
-    const overview = () => { markers.forEach(m => m.closeTooltip()); highlight(-1); map.flyToBounds(bounds, { duration: 1 }); };
+    const overview = () => { active = -1; show(-1); map.flyToBounds(bounds, { duration: 1 }); };
     // shrink pins when zoomed out so LA and the Bay Area don't overlap
     const sizePins = () => document.getElementById("map").classList.toggle("far", map.getZoom() < 4);
     map.on("zoomend", sizePins);
     map.fitBounds(bounds);
     sizePins();
 
-    function highlight(i) {
-      markers.forEach((m, j) => m.getElement()?.firstChild.classList.toggle("on", j === i));
+    // only one stop is ever shown: the hovered one, else the last clicked one (active), else none
+    let active = -1, playing = null;
+    function show(i) {
+      markers.forEach((m, j) => {
+        m.getElement()?.firstChild.classList.toggle("on", j === i);
+        if (j !== i) m.closeTooltip();
+      });
       list.querySelectorAll(".stop").forEach((b, j) => b.classList.toggle("on", j === i));
+      if (i >= 0) markers[i].openTooltip();
     }
     function go(i, zoom = 6) {
-      highlight(i);
+      active = i;
+      show(i);
       map.flyTo(STOPS[i].ll, zoom, { duration: 1.2 });
-      map.once("moveend", () => markers[i].openTooltip());
     }
 
-    let playing = null;
     document.getElementById("overview").addEventListener("click", () => { clearTimeout(playing); overview(); });
     document.getElementById("play").addEventListener("click", () => {
       clearTimeout(playing);
