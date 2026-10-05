@@ -372,11 +372,11 @@
         <div class="kao">( •̀ ω •́ )✧</div>
         <div class="sub">Research by the numbers</div>
         <div class="stats">
-          <div class="stat"><b>24K+</b><small>citations</small></div>
-          <div class="stat"><b>27</b><small>h-index</small></div>
-          <div class="stat"><b>34</b><small>i10-index</small></div>
+          <div class="stat"><b id="stat-cites">24K+</b><small>citations</small></div>
+          <div class="stat"><b id="stat-h">27</b><small>h-index</small></div>
+          <div class="stat"><b id="stat-i10">34</b><small>i10-index</small></div>
         </div>
-        <div class="src">via <a href="https://scholar.google.com/citations?user=vM1SktEAAAAJ&amp;hl=en" target="_blank" rel="noopener">Google Scholar</a></div>
+        <div class="src">via <a href="https://scholar.google.com/citations?user=vM1SktEAAAAJ&amp;hl=en" target="_blank" rel="noopener">Google Scholar</a><span id="synced"></span></div>
       </div>
     </div>
   </div>
@@ -560,7 +560,7 @@
   const link = p => p.url || "https://scholar.google.com/scholar?q=" + encodeURIComponent(p.t);
 
   const list = document.getElementById("pubs");
-  list.innerHTML = PUBS.map(p => `
+  const renderPubs = () => list.innerHTML = PUBS.map(p => `
     <div class="pub"${p.id ? ` id="pub-${p.id}"` : ""} data-tag="${p.tag}" data-text="${esc((p.t + " " + p.a + " " + p.v).toLowerCase())}">
       <div>
         <a class="t" href="${link(p)}" target="_blank" rel="noopener">${esc(p.t)}</a>
@@ -569,6 +569,7 @@
       </div>
       ${p.c ? `<div class="cites">${fmt(p.c)}<small>citations</small></div>` : ""}
     </div>`).join("");
+  renderPubs();
 
   let filter = "all", query = "";
   const apply = () => {
@@ -686,6 +687,19 @@
       step();
     });
   });
+
+  // citation counts: citations.json is refreshed daily from Google Scholar by a GitHub Action;
+  // the numbers inline above are only a fallback if it can't be loaded
+  fetch("citations.json", { cache: "no-cache" }).then(r => r.ok ? r.json() : Promise.reject()).then(d => {
+    const norm = t => t.toLowerCase().replace(/[^a-z0-9]/g, "");
+    PUBS.forEach(p => { const c = d.papers[norm(p.t)]; if (c) p.c = c; });
+    renderPubs();
+    apply();
+    document.getElementById("stat-cites").textContent = Math.floor(d.citations / 1000) + "K+";
+    document.getElementById("stat-h").textContent = d.h_index;
+    document.getElementById("stat-i10").textContent = d.i10_index;
+    document.getElementById("synced").textContent = " · updated " + d.updated;
+  }).catch(() => {});
 
   document.getElementById("yr").textContent = new Date().getFullYear();
 </script>
