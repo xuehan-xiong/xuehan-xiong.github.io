@@ -18,8 +18,15 @@ jobs:
         with:
           python-version: "3.12"
 
-      - name: Fetch citation counts from Google Scholar
-        run: python scripts/update_citations.py
+      - name: Fetch citation counts from Google Scholar (via SerpApi)
+        env:
+          SERPAPI_KEY: ${{ secrets.SERPAPI_KEY }}
+        run: |
+          if [ -z "$SERPAPI_KEY" ]; then
+            echo "::error::SERPAPI_KEY secret is not set (Scholar blocks GitHub's servers, so it's required here)."
+            exit 1
+          fi
+          python scripts/update_citations.py
 
       - name: Commit if changed
         run: |
