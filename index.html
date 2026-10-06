@@ -688,7 +688,7 @@
     });
   });
 
-  // citation counts: citations.json is refreshed daily from Google Scholar by a GitHub Action;
+  // citation counts: citations.json is refreshed weekly from Google Scholar by a GitHub Action;
   // the numbers inline above are only a fallback if it can't be loaded
   fetch("citations.json", { cache: "no-cache" }).then(r => r.ok ? r.json() : Promise.reject()).then(d => {
     const norm = t => t.toLowerCase().replace(/[^a-z0-9]/g, "");

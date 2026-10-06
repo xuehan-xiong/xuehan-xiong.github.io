@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Fetch citation counts from Google Scholar and write citations.json.
 
-Run daily by .github/workflows/update-citations.yml. Scholar blocks requests from
+Run weekly by .github/workflows/update-citations.yml. Scholar blocks requests from
 GitHub's servers, so when SERPAPI_KEY is set (as it is in the workflow) the data
 comes from SerpApi's Google Scholar Author API instead. Without it, the script
 scrapes the Scholar profile directly, which works from a normal machine.
