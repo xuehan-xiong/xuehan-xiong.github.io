@@ -1,5 +1,5 @@
 {
- "citations": 24449,
+ "citations": 24509,
  "h_index": 27,
  "i10_index": 34,
  "papers": {
@@ -8,24 +8,24 @@
   "anaggressivegeneticprogrammingapproachforsearchingneuralnetworkstructureundercomputationalconstraints": 4,
   "artificialhippocampusnetworksforefficientlongcontextmodeling": 11,
   "attentionnasspatiotemporalattentioncellsearchforvideoclassification": 59,
-  "automaticcreationofsemanticallyrich3dbuildingmodelsfromlaserscannerdata": 964,
+  "automaticcreationofsemanticallyrich3dbuildingmodelsfromlaserscannerdata": 965,
   "bayesianoptimalactivesearchandsurveying": 176,
   "beyondtransferlearningcofinetuningforactionlocalisation": 11,
   "drivergazetrackingandeyesofftheroaddetectionsystem": 467,
   "efficientvideoobjectsegmentationvianetworkmodulation": 482,
   "endtoendspatiotemporalactionlocalisationwithvideotransformers": 66,
   "eyegazetrackingusinganrgbdcameraacomparisonwithargbsolution": 132,
-  "gemini15unlockingmultimodalunderstandingacrossmillionsoftokensofcontext": 4881,
-  "geminiafamilyofhighlycapablemultimodalmodels": 11314,
+  "gemini15unlockingmultimodalunderstandingacrossmillionsoftokensofcontext": 4898,
+  "geminiafamilyofhighlycapablemultimodalmodels": 11354,
   "generatinganimagemaskusingmachinelearning": 400,
-  "globalsuperviseddescentmethod": 250,
+  "globalsuperviseddescentmethod": 249,
   "intraface": 34,
   "learningfromweaklylabeledwebvideosviaexploringsubconcepts": 7,
   "methodsandsystemsforshortformpreviewsoflongformmediaitems": 1,
   "methodsforautomaticallymodelingandrepresentingasbuiltbuildinginformationmodels": 177,
   "mmmixamultimodalmultiviewtransformerensemble": 39,
   "modulatedimagesegmentation": 7,
-  "multiviewtransformersforvideorecognition": 473,
+  "multiviewtransformersforvideorecognition": 474,
   "neuralnetworksforfacialmodeling": 58,
   "perfnetposeempoweredrgbflownet": 33,
   "poseempoweredrgbflownet": 2,
@@ -34,7 +34,7 @@
   "seed15vltechnicalreport": 450,
   "semisupervisedstackedlearningonrelationaldata": 0,
   "spatialtemporalalignmentnetworkforactionrecognitionanddetection": 10,
-  "streamingdensevideocaptioning": 162,
+  "streamingdensevideocaptioning": 164,
   "superviseddescentmethod": 2,
   "superviseddescentmethodanditsapplicationstofacealignment": 2609,
   "superviseddescentmethodforsolvingnonlinearleastsquaresproblemsincomputervision": 67,
@@ -48,5 +48,5 @@
   "videoprocessingmodelswithstreamingfeaturebank": 1,
   "virtualobjectmachinelearning": 250
  },
- "updated": "2026-10-19"
+ "updated": "2026-10-26"
 }
