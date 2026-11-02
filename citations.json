@@ -1,5 +1,5 @@
 {
- "citations": 24509,
+ "citations": 24665,
  "h_index": 27,
  "i10_index": 34,
  "papers": {
@@ -8,15 +8,15 @@
   "anaggressivegeneticprogrammingapproachforsearchingneuralnetworkstructureundercomputationalconstraints": 4,
   "artificialhippocampusnetworksforefficientlongcontextmodeling": 11,
   "attentionnasspatiotemporalattentioncellsearchforvideoclassification": 59,
-  "automaticcreationofsemanticallyrich3dbuildingmodelsfromlaserscannerdata": 965,
+  "automaticcreationofsemanticallyrich3dbuildingmodelsfromlaserscannerdata": 968,
   "bayesianoptimalactivesearchandsurveying": 176,
   "beyondtransferlearningcofinetuningforactionlocalisation": 11,
-  "drivergazetrackingandeyesofftheroaddetectionsystem": 467,
+  "drivergazetrackingandeyesofftheroaddetectionsystem": 468,
   "efficientvideoobjectsegmentationvianetworkmodulation": 482,
   "endtoendspatiotemporalactionlocalisationwithvideotransformers": 66,
   "eyegazetrackingusinganrgbdcameraacomparisonwithargbsolution": 132,
-  "gemini15unlockingmultimodalunderstandingacrossmillionsoftokensofcontext": 4898,
-  "geminiafamilyofhighlycapablemultimodalmodels": 11354,
+  "gemini15unlockingmultimodalunderstandingacrossmillionsoftokensofcontext": 4940,
+  "geminiafamilyofhighlycapablemultimodalmodels": 11449,
   "generatinganimagemaskusingmachinelearning": 400,
   "globalsuperviseddescentmethod": 249,
   "intraface": 34,
@@ -25,16 +25,16 @@
   "methodsforautomaticallymodelingandrepresentingasbuiltbuildinginformationmodels": 177,
   "mmmixamultimodalmultiviewtransformerensemble": 39,
   "modulatedimagesegmentation": 7,
-  "multiviewtransformersforvideorecognition": 474,
+  "multiviewtransformersforvideorecognition": 475,
   "neuralnetworksforfacialmodeling": 58,
   "perfnetposeempoweredrgbflownet": 33,
   "poseempoweredrgbflownet": 2,
   "publicationsubmissionform": 0,
   "realtimetrackingcompensatedimageeffects": 19,
-  "seed15vltechnicalreport": 450,
+  "seed15vltechnicalreport": 460,
   "semisupervisedstackedlearningonrelationaldata": 0,
   "spatialtemporalalignmentnetworkforactionrecognitionanddetection": 10,
-  "streamingdensevideocaptioning": 164,
+  "streamingdensevideocaptioning": 168,
   "superviseddescentmethod": 2,
   "superviseddescentmethodanditsapplicationstofacealignment": 2609,
   "superviseddescentmethodforsolvingnonlinearleastsquaresproblemsincomputervision": 67,
@@ -48,5 +48,5 @@
   "videoprocessingmodelswithstreamingfeaturebank": 1,
   "virtualobjectmachinelearning": 250
  },
- "updated": "2026-10-26"
+ "updated": "2026-11-02"
 }
